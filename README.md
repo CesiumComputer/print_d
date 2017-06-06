@@ -30,4 +30,4 @@ echo print_d($obj, true); // prints object variables and methods with attribute 
 
 ## Screenshots
 
-![Print_d](https://raw.github.com/vikerlane/print_d/master/example.png)
+![Print_d](https://raw.githubusercontent.com/CesiumComputer/print_d/master/example.png)

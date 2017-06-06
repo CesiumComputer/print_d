@@ -4,21 +4,22 @@
 
 Kratt Tools PRINT_D
 Written by Pertti Soomann, 2014
+https://github.com/vikerlane
 
 Check for latest version and report issues at
-https://github.com/vikerlane/print_d
+https://github.com/CesiumComputer/print_d
 
 Copyright (c) 2014, Pertti Soomann @ Vikerlane
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met: 
+modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer. 
+   list of conditions and the following disclaimer.
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution. 
+   and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -32,7 +33,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies, 
+of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the FreeBSD Project.
 
 */
@@ -52,7 +53,7 @@ function print_d($var, $options = false)
 		'holder' => 'border: 1px solid #ddd; padding: 6px; background: #fff; float: left; margin: 3px; font-size: 11px; font-family:Lucida Console, Monaco, monospace;',
 		'table' => 'border: 1px solid #ddd; border-collapse:collapse;',
 		'table-methods' => 'margin-top: 4px; width: 100%;',
-		'td' => 'border: 1px solid #ddd; font-size: 11px; vertical-align: top; padding: 2px 4px 2px 4px;',
+		'td' => 'border: 1px solid #ddd; font-size: 11px; vertical-align: top; padding: 2px 4px 2px 4px; word-wrap: break-word;',
 		'method' => 'color: #00d;',
 		'attributes' => 'padding: 2px;',
 		'table-attributes' => 'width: 100%; border-collapse:collapse;',
@@ -69,6 +70,7 @@ function print_d($var, $options = false)
 		'type-string' => 'font-weight: bold; max-width: 250px; color: #d00;',
 		'type-boolean' => 'font-weight: bold; max-width: 250px; color: #bbb;',
 		'type-null' => 'font-weight: bold; max-width: 250px; color: #bbb;',
+		'type-resource' => 'font-weight: bold; max-width: 250px; color: #bbb;',
 		'void' => 'font-style: italic; color: #bbb;',
 		'emptystring' => 'color: #bbb; font-style: italic; font-weight: normal;'
 	);
@@ -165,7 +167,7 @@ function print_d($var, $options = false)
 		 		{
 		 			++$count;
 		 			$v_type = strtolower(gettype($v));
-		 			
+
 		 			if ($v_type === 'object' || $v_type === 'array')
 		 				$v = print_d($v, array('recursive' => true));
 		 			else if ($v_type === 'boolean')
